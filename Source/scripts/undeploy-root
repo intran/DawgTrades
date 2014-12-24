@@ -1,0 +1,2 @@
+#!/bin/bash
+curl http://jenkins:chiKyWGeLrkS@dawgtrades.devisedby.us:8080/manager/text/undeploy\?path\=/

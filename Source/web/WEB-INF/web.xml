@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <display-name>DawgTrades</display-name>
+    <description>
+        DawgTrades: the place to buy and sell stuff at UGA.
+    </description>
+
+    <!-- Background worker -->
+    <listener>
+       <listener-class>edu.uga.dawgtrades.DawgTradesContextListener</listener-class>
+    </listener>
+
+    <!--{ Static resources }-->
+    <servlet>
+        <servlet-name>fileServlet</servlet-name>
+        <servlet-class>net.balusc.webapp.FileServlet</servlet-class>
+        <init-param>
+            <param-name>basePath</param-name>
+            <param-value>/WEB-INF/resources</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>fileServlet</servlet-name>
+        <url-pattern>/resources/*</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>IndexServlet</servlet-name>
+        <servlet-class>edu.uga.dawgtrades.ui.IndexUI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>IndexServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>edu.uga.dawgtrades.ui.LoginUI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ResetPasswordUI</servlet-name>
+        <servlet-class>edu.uga.dawgtrades.ui.ResetPasswordUI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ResetPasswordUI</servlet-name>
+        <url-pattern>/resetPassword</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DoPasswordResetUI</servlet-name>
+        <servlet-class>edu.uga.dawgtrades.ui.DoPasswordResetUI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DoPasswordResetUI</servlet-name>
+        <url-pattern>/doReset</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>edu.uga.dawgtrades.ui.LogoutUI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>edu.uga.dawgtrades.ui.RegisterUI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CategoryServlet</servlet-name>
+        <servlet-class>edu.uga.dawgtrades.ui.CategoryUI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CategoryServlet</servlet-name>
+        <url-pattern>/category</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>SettingsServlet</servlet-name>
+        <servlet-class>edu.uga.dawgtrades.ui.SettingsUI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SettingsServlet</servlet-name>
+        <url-pattern>/settings</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AdminPanelServlet</servlet-name>
+        <servlet-class>edu.uga.dawgtrades.ui.AdminPanelUI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminPanelServlet</servlet-name>
+        <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteAccount</servlet-name>
+        <servlet-class>edu.uga.dawgtrades.ui.DeleteAccountUI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteAccount</servlet-name>
+        <url-pattern>/deleteAccount</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CategoryAdminPanelServlet</servlet-name>
+        <servlet-class>edu.uga.dawgtrades.ui.CategoryAdminUI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CategoryAdminPanelServlet</servlet-name>
+        <url-pattern>/admin/categories</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CategoryAdminPanelCreateServlet</servlet-name>
+        <servlet-class>edu.uga.dawgtrades.ui.CreateCategoryAdminUI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CategoryAdminPanelCreateServlet</servlet-name>
+        <url-pattern>/admin/categories/create</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CategoryAdminPanelDeleteServlet</servlet-name>
+        <servlet-class>edu.uga.dawgtrades.ui.DeleteCategoryAdminUI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CategoryAdminPanelDeleteServlet</servlet-name>
+        <url-pattern>/admin/categories/delete</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CategoryAdminPanelEditServlet</servlet-name>
+        <servlet-class>edu.uga.dawgtrades.ui.EditCategoryAdminUI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CategoryAdminPanelEditServlet</servlet-name>
+        <url-pattern>/admin/categories/edit</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>AttributeAdminPanelCreateServlet</servlet-name>
+        <servlet-class>edu.uga.dawgtrades.ui.CreateAttributeAdminUI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AttributeAdminPanelCreateServlet</servlet-name>
+        <url-pattern>/admin/attributes/create</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AttributeAdminPanelDeleteServlet</servlet-name>
+        <servlet-class>edu.uga.dawgtrades.ui.DeleteAttributeAdminUI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AttributeAdminPanelDeleteServlet</servlet-name>
+        <url-pattern>/admin/attributes/delete</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AttributeAdminPanelEditServlet</servlet-name>
+        <servlet-class>edu.uga.dawgtrades.ui.EditAttributeAdminUI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AttributeAdminPanelEditServlet</servlet-name>
+        <url-pattern>/admin/attributes/edit</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>ApproveUserAdminUI</servlet-name>
+        <servlet-class>edu.uga.dawgtrades.ui.ApproveUserAdminUI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ApproveUserAdminUI</servlet-name>
+        <url-pattern>/admin/users/approve</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>CreateAuctionServlet</servlet-name>
+        <servlet-class>edu.uga.dawgtrades.ui.CreateAuctionUI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateAuctionServlet</servlet-name>
+        <url-pattern>/createAuction</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>MembershipUI</servlet-name>
+        <servlet-class>edu.uga.dawgtrades.ui.MembershipUI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MembershipUI</servlet-name>
+        <url-pattern>/admin/membership</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ExperienceReportUI</servlet-name>
+        <servlet-class>edu.uga.dawgtrades.ui.ExperienceReportUI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ExperienceReportUI</servlet-name>
+        <url-pattern>/experience</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AuctionUI</servlet-name>
+        <servlet-class>edu.uga.dawgtrades.ui.AuctionUI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AuctionUI</servlet-name>
+        <url-pattern>/auction</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteAuctionUI</servlet-name>
+        <servlet-class>edu.uga.dawgtrades.ui.DeleteAuctionUI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteAuctionUI</servlet-name>
+        <url-pattern>/auction/delete</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ViewUserUI</servlet-name>
+        <servlet-class>edu.uga.dawgtrades.ui.ViewUserUI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewUserUI</servlet-name>
+        <url-pattern>/user</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BidUI</servlet-name>
+        <servlet-class>edu.uga.dawgtrades.ui.BidUI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BidUI</servlet-name>
+        <url-pattern>/bid</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SearchUI</servlet-name>
+        <servlet-class>edu.uga.dawgtrades.ui.SearchUI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchUI</servlet-name>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MyAuctions</servlet-name>
+        <servlet-class>edu.uga.dawgtrades.ui.MyAuctionsUI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MyAuctions</servlet-name>
+        <url-pattern>/myAuctions</url-pattern>
+    </servlet-mapping>
+
+
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+    <servlet>
+        <servlet-name>freemarker</servlet-name>
+        <servlet-class>freemarker.ext.servlet.FreemarkerServlet</servlet-class>
+        <init-param>
+            <param-name>TemplatePath</param-name>
+            <param-value>/WEB-INF/templates/</param-value>
+        </init-param>
+        <init-param>
+            <param-name>NoCache</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>ContentType</param-name>
+            <param-value>text/html; charset=UTF-8</param-value>
+            <!-- Forces UTF-8 output encoding! -->
+        </init-param>
+        <!-- FreeMarker settings: -->
+        <init-param>
+            <param-name>template_update_delay</param-name>
+            <param-value>0</param-value>
+            <!-- 0 is for development only! Use higher value otherwise. -->
+        </init-param>
+        <init-param>
+            <param-name>default_encoding</param-name>
+            <param-value>UTF-8</param-value>
+            <!-- The encoding of the template files. -->
+        </init-param>
+        <init-param>
+            <param-name>number_format</param-name>
+            <param-value>0.##########</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>freemarker</servlet-name>
+        <url-pattern>*.ftl</url-pattern>
+    </servlet-mapping>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>FreeMarker MVC Views</web-resource-name>
+            <url-pattern>*.ftl</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <!-- Nobody is allowed to visit these -->
+        </auth-constraint>
+    </security-constraint>
+</web-app>

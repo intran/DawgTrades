@@ -1,0 +1,33 @@
+/* make sidebar nav vertical */ 
+@media (min-width: 768px) {
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+  }
+  .sidebar-nav .navbar ul:not {
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+input#settingsForm .form-control::-webkit-input-placeholder{color:white;}
+a#createItemLink {
+  text-decoration: underline;
+  color:black;
+}
+
+.lead-no-bottom-margin {
+  margin-bottom: 0 !important;
+}
+.margin-bottom {
+  margin-bottom:0.5em;
+}
